@@ -1,0 +1,23 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+<h1>Dfcconceptosaportes creation</h1>
+
+<form action="{{ path('conceptosaportesc_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <p>
+        <button type="submit">Create</button>
+    </p>
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('conceptosaportesc') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}
+{% block submenu %}
+{% include 'AplicativoBundle:Dfcaportes:submenu.html.twig' %}
+{% endblock %}

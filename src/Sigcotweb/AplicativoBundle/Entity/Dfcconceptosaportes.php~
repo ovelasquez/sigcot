@@ -1,0 +1,46 @@
+<?php
+
+namespace Sigcotweb\AplicativoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Sigcotweb\AplicativoBundle\Entity\Dfcconceptosaportes
+ *
+ * @ORM\Table(name="dfcconceptosaportes")
+ * @ORM\Entity
+ */
+class Dfcconceptosaportes
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var float $monto
+     *
+     * @ORM\Column(name="monto", type="decimal", nullable=false)
+     */
+    private $monto;
+
+    /**
+     * @var string $titulo
+     *
+     * @ORM\Column(name="titulo", type="string", length=255, nullable=false)
+     */
+    private $titulo;
+
+    /**
+     * @var string $descripcion
+     *
+     * @ORM\Column(name="descripcion", type="string", length=255, nullable=false)
+     */
+    private $descripcion;
+
+
+}

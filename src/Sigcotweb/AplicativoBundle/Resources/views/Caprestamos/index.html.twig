@@ -1,0 +1,50 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+<h1>Caprestamos list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Monto</th>
+            <th>Fecha</th>
+            <th>Numaportes</th>
+            <th>Interes</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('prestamoscajadeahorro_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.monto }}</td>
+            <td>{% if entity.fecha %}{{ entity.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>{{ entity.numaportes }}</td>
+            <td>{{ entity.interes }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('prestamoscajadeahorro_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('prestamoscajadeahorro_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('prestamoscajadeahorro_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>
+{% endblock %}
+{% block submenu %}
+{% include 'AplicativoBundle:Caprestamos:submenu.html.twig' %}
+{% endblock %}

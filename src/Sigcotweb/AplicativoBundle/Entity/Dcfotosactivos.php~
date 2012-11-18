@@ -1,0 +1,49 @@
+<?php
+
+namespace Sigcotweb\AplicativoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Sigcotweb\AplicativoBundle\Entity\Dcfotosactivos
+ *
+ * @ORM\Table(name="dcfotosactivos")
+ * @ORM\Entity
+ */
+class Dcfotosactivos
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string $identificador
+     *
+     * @ORM\Column(name="identificador", type="string", length=255, nullable=false)
+     */
+    private $identificador;
+
+    /**
+     * @var string $foto
+     *
+     * @ORM\Column(name="foto", type="blob", nullable=false)
+     */
+    private $foto;
+
+    /**
+     * @var Dcactivos
+     *
+     * @ORM\ManyToOne(targetEntity="Dcactivos")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="activoc_id", referencedColumnName="id")
+     * })
+     */
+    private $activoc;
+
+
+}

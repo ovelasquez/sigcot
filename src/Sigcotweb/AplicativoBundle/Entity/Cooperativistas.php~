@@ -1,0 +1,112 @@
+<?php
+
+namespace Sigcotweb\AplicativoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Sigcotweb\AplicativoBundle\Entity\Cooperativistas
+ *
+ * @ORM\Table(name="cooperativistas")
+ * @ORM\Entity
+ */
+class Cooperativistas
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string $usuario
+     *
+     * @ORM\Column(name="usuario", type="string", length=255, nullable=false)
+     */
+    private $usuario;
+
+    /**
+     * @var string $clave
+     *
+     * @ORM\Column(name="clave", type="string", length=255, nullable=false)
+     */
+    private $clave;
+
+    /**
+     * @var string $nombre
+     *
+     * @ORM\Column(name="nombre", type="string", length=255, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var string $apellido
+     *
+     * @ORM\Column(name="apellido", type="string", length=255, nullable=false)
+     */
+    private $apellido;
+
+    /**
+     * @var string $cinum
+     *
+     * @ORM\Column(name="cinum", type="string", length=10, nullable=false)
+     */
+    private $cinum;
+
+    /**
+     * @var string $rifnum
+     *
+     * @ORM\Column(name="rifnum", type="string", length=10, nullable=false)
+     */
+    private $rifnum;
+
+    /**
+     * @var string $direccion
+     *
+     * @ORM\Column(name="direccion", type="string", length=255, nullable=false)
+     */
+    private $direccion;
+
+    /**
+     * @var string $telefonos
+     *
+     * @ORM\Column(name="telefonos", type="string", length=255, nullable=false)
+     */
+    private $telefonos;
+
+    /**
+     * @var string $foto
+     *
+     * @ORM\Column(name="foto", type="blob", nullable=false)
+     */
+    private $foto;
+
+    /**
+     * @var string $ciarc
+     *
+     * @ORM\Column(name="ciarc", type="blob", nullable=false)
+     */
+    private $ciarc;
+
+    /**
+     * @var string $rifarc
+     *
+     * @ORM\Column(name="rifarc", type="blob", nullable=false)
+     */
+    private $rifarc;
+
+    /**
+     * @var Dccargos
+     *
+     * @ORM\ManyToOne(targetEntity="Dccargos")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="dccargo_id", referencedColumnName="id")
+     * })
+     */
+    private $dccargo;
+
+
+}

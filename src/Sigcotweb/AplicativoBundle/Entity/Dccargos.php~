@@ -1,0 +1,39 @@
+<?php
+
+namespace Sigcotweb\AplicativoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Sigcotweb\AplicativoBundle\Entity\Dccargos
+ *
+ * @ORM\Table(name="dccargos")
+ * @ORM\Entity
+ */
+class Dccargos
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string $identificador
+     *
+     * @ORM\Column(name="identificador", type="string", length=255, nullable=false)
+     */
+    private $identificador;
+
+    /**
+     * @var string $descripcion
+     *
+     * @ORM\Column(name="descripcion", type="string", length=255, nullable=false)
+     */
+    private $descripcion;
+
+
+}

@@ -1,0 +1,63 @@
+<?php
+
+namespace Sigcotweb\AplicativoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Sigcotweb\AplicativoBundle\Entity\Caprestamos
+ *
+ * @ORM\Table(name="caprestamos")
+ * @ORM\Entity
+ */
+class Caprestamos
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer $monto
+     *
+     * @ORM\Column(name="monto", type="bigint", nullable=false)
+     */
+    private $monto;
+
+    /**
+     * @var \DateTime $fecha
+     *
+     * @ORM\Column(name="fecha", type="date", nullable=false)
+     */
+    private $fecha;
+
+    /**
+     * @var integer $numaportes
+     *
+     * @ORM\Column(name="numaportes", type="integer", nullable=false)
+     */
+    private $numaportes;
+
+    /**
+     * @var integer $interes
+     *
+     * @ORM\Column(name="interes", type="integer", nullable=false)
+     */
+    private $interes;
+
+    /**
+     * @var Cooperativistas
+     *
+     * @ORM\ManyToOne(targetEntity="Cooperativistas")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="cooperativista_id", referencedColumnName="id")
+     * })
+     */
+    private $cooperativista;
+
+
+}

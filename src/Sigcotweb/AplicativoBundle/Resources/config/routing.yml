@@ -1,0 +1,5 @@
+aportesdecajadeahorro:
+  resource: "@AplicativoBundle/Controller/"
+  prefix: /
+  type: annotation
+  

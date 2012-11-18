@@ -1,0 +1,23 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+<h1>Caaportes creation</h1>
+
+<form action="{{ path('aportesdecajadeahorro_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <p>
+        <button type="submit">Create</button>
+    </p>
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('aportesdecajadeahorro') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}
+{% block submenu %}
+{% include 'AplicativoBundle:Caprestamos:submenu.html.twig' %}
+{% endblock %}

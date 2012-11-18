@@ -1,0 +1,49 @@
+<?php
+
+namespace Sigcotweb\AplicativoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Sigcotweb\AplicativoBundle\Entity\Dfcaportes
+ *
+ * @ORM\Table(name="dfcaportes")
+ * @ORM\Entity
+ */
+class Dfcaportes
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var float $monto
+     *
+     * @ORM\Column(name="monto", type="decimal", nullable=false)
+     */
+    private $monto;
+
+    /**
+     * @var \DateTime $fecha
+     *
+     * @ORM\Column(name="fecha", type="date", nullable=false)
+     */
+    private $fecha;
+
+    /**
+     * @var Cooperativistas
+     *
+     * @ORM\ManyToOne(targetEntity="Cooperativistas")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="cooperativista_id", referencedColumnName="id")
+     * })
+     */
+    private $cooperativista;
+
+
+}

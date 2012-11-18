@@ -1,0 +1,48 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+<h1>Lista de activos</h1>
+<div><ul class="btns">
+    <li>
+        <a href="{{ path('activoscooperativistas_new') }}">
+             crear entrada
+        </a>
+    </li>
+</ul></div>
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Cooperativista</th>
+            <th>Placa</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('activoscooperativistas_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.cooperativista }}</td>
+            <td>{{ entity.placa }}</td>
+            <td>
+                <ul class="btns">
+                    <li>
+                        <a href="{{ path('activoscooperativistas_show', { 'id': entity.id }) }}" >mostrar</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('activoscooperativistas_edit', { 'id': entity.id }) }}">editar</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+        
+    </tbody>
+</table>
+
+
+{% endblock %}
+{% block submenu %}
+{% include 'AplicativoBundle:Cooperativistas:submenu.html.twig' %}
+{% endblock %}

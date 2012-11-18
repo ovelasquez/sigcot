@@ -1,0 +1,70 @@
+<?php
+
+namespace Sigcotweb\AplicativoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Sigcotweb\AplicativoBundle\Entity\Dcactivos
+ *
+ * @ORM\Table(name="dcactivos")
+ * @ORM\Entity
+ */
+class Dcactivos
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string $tipo
+     *
+     * @ORM\Column(name="tipo", type="string", length=255, nullable=false)
+     */
+    private $tipo;
+
+    /**
+     * @var string $marca
+     *
+     * @ORM\Column(name="marca", type="string", length=255, nullable=false)
+     */
+    private $marca;
+
+    /**
+     * @var string $modelo
+     *
+     * @ORM\Column(name="modelo", type="string", length=255, nullable=false)
+     */
+    private $modelo;
+
+    /**
+     * @var string $anio
+     *
+     * @ORM\Column(name="anio", type="string", length=4, nullable=false)
+     */
+    private $anio;
+
+    /**
+     * @var string $placa
+     *
+     * @ORM\Column(name="placa", type="string", length=255, nullable=false)
+     */
+    private $placa;
+
+    /**
+     * @var Cooperativistas
+     *
+     * @ORM\ManyToOne(targetEntity="Cooperativistas")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="cooperativista_id", referencedColumnName="id")
+     * })
+     */
+    private $cooperativista;
+
+
+}

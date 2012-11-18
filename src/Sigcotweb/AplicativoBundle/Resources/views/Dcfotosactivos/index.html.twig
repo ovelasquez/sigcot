@@ -1,0 +1,48 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+<h1>Lista de fotos de activos</h1>
+<div><ul class="btns">
+    <li>
+        <a href="{{ path('fotosactivos_new') }}">
+            crear entrada
+        </a>
+    </li>
+</ul></div>
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Cooperativista-Placa</th>
+            <th>Identificador</th>
+            <th>Foto</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('fotosactivos_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.activoc }}</td>
+            <td>{{ entity.identificador }}</td>
+            <td><img src="{{ asset(directorio_imagenes ~ entity.foto ) }}" height="50px"></td>
+            <td>
+                <ul class="btns">
+                    <li>
+                        <a href="{{ path('fotosactivos_show', { 'id': entity.id }) }}">mostrar</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('fotosactivos_edit', { 'id': entity.id }) }}">editar</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}
+{% block submenu %}
+{% include 'AplicativoBundle:Cooperativistas:submenu.html.twig' %}
+{% endblock %}

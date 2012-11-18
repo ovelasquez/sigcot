@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Cooperativistas" table="cooperativistas">
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="usuario" type="string" column="usuario" length="255" nullable="false"/>
+    <field name="clave" type="string" column="clave" length="255" nullable="false"/>
+    <field name="nombre" type="string" column="nombre" length="255" nullable="false"/>
+    <field name="apellido" type="string" column="apellido" length="255" nullable="false"/>
+    <field name="cinum" type="string" column="cinum" length="10" nullable="false"/>
+    <field name="rifnum" type="string" column="rifnum" length="10" nullable="false"/>
+    <field name="direccion" type="string" column="direccion" length="255" nullable="false"/>
+    <field name="telefonos" type="string" column="telefonos" length="255" nullable="false"/>
+    <field name="foto" type="blob" column="foto" nullable="false"/>
+    <field name="ciarc" type="blob" column="ciarc" nullable="false"/>
+    <field name="rifarc" type="blob" column="rifarc" nullable="false"/>
+    <many-to-one field="dccargo" target-entity="Dccargos">
+      <join-columns>
+        <join-column name="dccargo_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

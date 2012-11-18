@@ -1,0 +1,39 @@
+<?php
+
+namespace Sigcotweb\AplicativoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Sigcotweb\AplicativoBundle\Entity\Caconfig
+ *
+ * @ORM\Table(name="caconfig")
+ * @ORM\Entity
+ */
+class Caconfig
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer $porcentajemax
+     *
+     * @ORM\Column(name="porcentajemax", type="integer", nullable=false)
+     */
+    private $porcentajemax;
+
+    /**
+     * @var integer $interes
+     *
+     * @ORM\Column(name="interes", type="integer", nullable=false)
+     */
+    private $interes;
+
+
+}

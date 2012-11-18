@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Caprestamos" table="caprestamos">
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="monto" type="bigint" column="monto" nullable="false"/>
+    <field name="fecha" type="date" column="fecha" nullable="false"/>
+    <field name="numaportes" type="integer" column="numaportes" nullable="false"/>
+    <field name="interes" type="integer" column="interes" nullable="false"/>
+    <many-to-one field="cooperativista" target-entity="Cooperativistas">
+      <join-columns>
+        <join-column name="cooperativista_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>
